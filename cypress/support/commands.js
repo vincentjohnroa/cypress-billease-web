@@ -9,10 +9,6 @@ Cypress.Commands.add('searchShop', (shops) => {
     });
 });
 
-Cypress.Commands.add('clearSearchInput', () => {
-    cy.xpath('//input[@placeholder="Search shop"]').click().clear();
-})
-
 Cypress.Commands.add('searchByCategory', (category) => {
     cy.xpath('//button[@class="lg:hidden pr-2 flex justify-start"]').click();
     cy.contains(category).click();
@@ -28,6 +24,6 @@ Cypress.Commands.add('searchAndOpenAShop', (shop, shopURL) => {
 })
 
 Cypress.Commands.add('searchInvalidShop', (shop) => {
-    cy.xpath('//input[@placeholder="Search shop"]').type(shop).realPress('Enter');
+    cy.xpath('//input[@placeholder="Search shop"]').clear().type(shop).realPress('Enter');
     cy.xpath('//span[text() = "No result found."]').should('be.visible');
 })

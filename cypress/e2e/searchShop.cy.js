@@ -13,7 +13,6 @@ describe('Billease search functionality on /shops', () => {
 
     //go back to /shops and clear search field
     cy.get('a.nav-header').contains("Shops").click();
-    cy.clearSearchInput();
 
     // verify no search results for invalid input
     cy.searchInvalidShop("@#$%^$#%^&^");
