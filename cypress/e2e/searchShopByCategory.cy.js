@@ -5,8 +5,15 @@ describe('Billease search functionality by shop categories', () => {
       cy.visit('/')
   
       cy.searchByCategory("Electronics");
-      cy.searchShop("Kimstore");
-      cy.selectAShop("Kimstore", "/kimstore");
+      cy.searchShop(["Kimstore"]);
+      cy.searchAndOpenAShop("Kimstore", "/kimstore");
+
+      cy.xpath('//button[@aria-label="Expand sidebar"]').click();
+      cy.xpath('//aside//a[text() = "Shops"]').click();
+
+      cy.searchByCategory("Fashion");
+      cy.searchShop(["Havaianas"]);
+      cy.searchAndOpenAShop("Havaianas", "/havaianas");
       
     })
   })

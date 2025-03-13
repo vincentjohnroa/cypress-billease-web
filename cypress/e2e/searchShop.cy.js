@@ -8,8 +8,8 @@ describe('Billease search functionality on /shops', () => {
     // navigate to https://billease.ph/shops/
     cy.visit('/')
 
-    cy.searchShop("Cabalen");
-    cy.selectAShop("Cabalen", "/cabalen");
+    cy.searchShop(["Anker", "Kimstore", "Lazada", "Agoda", "Samsung", "Cabalen"]);
+    cy.searchAndOpenAShop("Vivo", "/vivo");
 
     //go back to /shops and clear search field
     cy.get('a.nav-header').contains("Shops").click();

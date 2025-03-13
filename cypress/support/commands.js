@@ -2,10 +2,12 @@ require('cypress-xpath');
 import "cypress-real-events";
 
 
-Cypress.Commands.add('searchShop', (shop) => {
-    cy.xpath('//input[@placeholder="Search shop"]').type(shop).realPress('Enter');
-    cy.xpath(`//h1[contains(string(), ${shop})]`).should('be.visible');
-})
+Cypress.Commands.add('searchShop', (shops) => {
+    shops.forEach((shop) => {
+        cy.xpath('//input[@placeholder="Search shop"]').clear().type(shop).realPress('Enter');
+        cy.xpath(`//div//span[contains(@class, "text-shop-title")][contains(string(), "${shop}")]`).should("be.visible");
+    });
+});
 
 Cypress.Commands.add('clearSearchInput', () => {
     cy.xpath('//input[@placeholder="Search shop"]').click().clear();
@@ -17,7 +19,8 @@ Cypress.Commands.add('searchByCategory', (category) => {
     cy.xpath(`//div[contains(@class, "text-subHeader")][contains(string(), "${category}")]`).should("be.visible");  
 })
 
-Cypress.Commands.add('selectAShop', (shop, shopURL) => {
+Cypress.Commands.add('searchAndOpenAShop', (shop, shopURL) => {
+    cy.xpath('//input[@placeholder="Search shop"]').clear().type(shop).realPress('Enter');
     cy.xpath(`//div//span[contains(@class, "text-shop-title")][contains(string(), "${shop}")]`).should("be.visible")
     .click();
     cy.url().should('include', shopURL);
