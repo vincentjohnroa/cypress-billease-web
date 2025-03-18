@@ -2,6 +2,11 @@ require('cypress-xpath');
 import "cypress-real-events";
 
 
+Cypress.Commands.add('navigateToBillease', (url) => {
+    cy.visit(`https://billease.ph${url}`);
+    cy.url().should('include', (url));
+})
+
 Cypress.Commands.add('searchShop', (shops) => {
     shops.forEach((shop) => {
         cy.xpath('//input[@placeholder="Search shop"]').clear().type(shop).realPress('Enter');

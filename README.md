@@ -11,4 +11,4 @@ How to run specs:
 1. Open this repository using your IDE
 2. Open the terminal(CLI) in your IDE and make sure you are in the directory of the project folder
 3. Run "npx cypress open"
-4. The cypress runner should open and you can chosse the spec to run from there 
+4. The cypress runner should open and you can choose the spec to run from there 

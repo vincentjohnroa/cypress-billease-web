@@ -2,7 +2,8 @@ describe('Billease search functionality by shop categories', () => {
     it('should display relevant search results based on category', () => {
   
       // navigate to https://billease.ph/shops/
-      cy.visit('/')
+      cy.navigateToBillease("/shops");
+      cy.xpath('//input[@placeholder="Search shop"]').should('be.visible');
   
       cy.searchByCategory("Electronics");
       cy.searchShop(["Kimstore"]);
