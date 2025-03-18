@@ -16,7 +16,6 @@ describe('Billease search functionality on /shops', () => {
     cy.get('a.nav-header').contains("Shops").click();
 
     // verify no search results for invalid input
-    cy.searchInvalidShop("@#$%^$#%^&^");
-    
+    cy.searchInvalidShop("@#$%^$#%^&^", "No result found.");
   })
 })
