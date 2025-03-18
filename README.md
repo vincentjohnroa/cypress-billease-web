@@ -8,7 +8,8 @@ Installation:
 3. Clone this repository
 
 How to run specs:
-1. Open this repository using your IDE
-2. Open the terminal(CLI) in your IDE and make sure you are in the directory of the project folder
-3. Run "npx cypress open"
-4. The cypress runner should open and you can choose the spec to run from there 
+1. Clone this repo via HTTPS
+2. Open this repository using your IDE
+3. Open the terminal(CLI) in your IDE and make sure you are in the directory of the project folder
+4. Run "npx cypress open"
+5. The cypress runner should open and you can choose the spec to run from there 
